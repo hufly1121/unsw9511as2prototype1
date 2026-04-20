@@ -114,6 +114,13 @@
       <span class="current" aria-current="page">Document Templates</span>
     </nav>
 
+    <!-- Back to Action Plan banner (shown only when arriving from action.html) -->
+    <div id="back-to-action" style="display:none; margin-bottom:20px;">
+      <a href="action.html" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:8px; font-size:var(--font-base);">
+        ← Back to My Action Plan
+      </a>
+    </div>
+
     <h1 class="page-title">Document Templates</h1>
     <p class="page-subtitle">
       Ready-to-use complaint letters and forms. Fill in the highlighted fields and send — no legal knowledge required.
@@ -413,6 +420,11 @@
 
 <script src="js/main.js"></script>
 <script>
+  // Show back button when arriving from action.html
+  if (new URLSearchParams(window.location.search).get('from') === 'action') {
+    document.getElementById('back-to-action').style.display = 'block';
+  }
+
   function openModal(id) {
     const m = document.getElementById(id);
     if (m) { m.classList.add('open'); document.body.style.overflow = 'hidden'; }
