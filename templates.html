@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Templates — Consumer Rights Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+    }
+    .modal-header {
+      padding: 24px 28px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-header h2 { font-size: var(--font-lg); font-weight: 700; }
+    .modal-close {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .modal-close:hover { background: var(--border); }
+    .modal-body { padding: 24px 28px; }
+    .letter-block {
+      background: #FAFAFA;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      font-family: 'Times New Roman', serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: #222;
+    }
+    .letter-block .field {
+      background: #FFF3CD;
+      border-radius: 3px;
+      padding: 1px 6px;
+      font-style: italic;
+      color: #7A4F00;
+    }
+    .letter-block p { margin-bottom: 14px; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- Accessibility Bar -->
+<div class="a11y-bar" role="toolbar" aria-label="Accessibility settings">
+  <div class="inner">
+    <span class="label">Accessibility:</span>
+    <button class="a11y-btn" id="btn-contrast" onclick="toggleContrast()">⬛ High Contrast</button>
+    <span class="a11y-separator" aria-hidden="true">|</span>
+    <span class="label">Text Size:</span>
+    <button class="a11y-btn" data-size="default" onclick="setTextSize('default')">A</button>
+    <button class="a11y-btn" data-size="lg"      onclick="setTextSize('lg')" style="font-size:18px">A</button>
+    <button class="a11y-btn" data-size="xl"      onclick="setTextSize('xl')" style="font-size:21px">A</button>
+    <span class="a11y-separator" aria-hidden="true">|</span>
+    <a class="a11y-btn" href="accessibility.html">⚙ More Settings</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header" role="banner">
+  <div class="inner">
+    <a class="site-logo" href="index.html" aria-label="Consumer Rights Hub home">
+      <div class="logo-icon" aria-hidden="true">⚖</div>
+      Consumer Rights Hub
+    </a>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="issue-classifier.html">Check My Rights</a>
+      <a href="templates.html" class="active">Templates</a>
+      <a href="complaint-pathway.html">How to Complain</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="page-wrap">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep" aria-hidden="true">›</span>
+      <span class="current" aria-current="page">Document Templates</span>
+    </nav>
+
+    <h1 class="page-title">Document Templates</h1>
+    <p class="page-subtitle">
+      Ready-to-use complaint letters and forms. Fill in the highlighted fields and send — no legal knowledge required.
+    </p>
+
+    <!-- Info Alert -->
+    <div class="alert alert-info mb-4" role="note">
+      <div class="alert-icon" aria-hidden="true">💡</div>
+      <div class="alert-body">
+        <div class="alert-title">How to use these templates</div>
+        <p>Click <strong>Preview</strong> to see the full letter, then click <strong>Use This Template</strong> to copy it. Fields shown in <span style="background:#FFF3CD;border-radius:3px;padding:1px 6px;font-style:italic;color:#7A4F00;">yellow</span> need to be replaced with your own information.</p>
+      </div>
+    </div>
+
+    <!-- Template Grid -->
+    <div class="grid-2" role="list" aria-label="Available document templates">
+
+      <!-- Template 1: Refund Request -->
+      <div class="template-card" role="listitem">
+        <div class="template-preview" aria-hidden="true">
+          <div class="doc-lines">
+            <div class="doc-line title"></div>
+            <div class="doc-line short"></div>
+            <div class="doc-line mid"></div>
+            <div class="doc-line"></div>
+            <div class="doc-line short"></div>
+            <div class="doc-line mid"></div>
+            <div class="doc-line short"></div>
+          </div>
+        </div>
+        <div class="template-info">
+          <span class="tag tag-primary mb-2">Most Popular</span>
+          <h3>Refund Request Letter</h3>
+          <p>Use this when you want to formally request a refund for a faulty product and the seller has not responded satisfactorily.</p>
+          <div class="template-actions">
+            <button class="btn btn-primary btn-sm" onclick="openModal('modal-refund')" aria-label="Preview refund request letter">👁 Preview</button>
+            <button class="btn btn-outline btn-sm" onclick="openModal('modal-refund')" aria-label="Use refund request letter template">📋 Use Template</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Template 2: Formal Complaint -->
+      <div class="template-card" role="listitem">
+        <div class="template-preview" aria-hidden="true">
+          <div class="doc-lines">
+            <div class="doc-line title"></div>
+            <div class="doc-line mid"></div>
+            <div class="doc-line"></div>
+            <div class="doc-line short"></div>
+            <div class="doc-line"></div>
+            <div class="doc-line mid"></div>
+            <div class="doc-line short"></div>
+          </div>
+        </div>
+        <div class="template-info">
+          <span class="tag tag-success mb-2">Escalation</span>
+          <h3>Formal Complaint Letter</h3>
+          <p>Use this if the seller has refused your initial request and you want to escalate the complaint with stronger language.</p>
+          <div class="template-actions">
+            <button class="btn btn-primary btn-sm" onclick="openModal('modal-complaint')" aria-label="Preview formal complaint letter">👁 Preview</button>
+            <button class="btn btn-outline btn-sm" onclick="openModal('modal-complaint')" aria-label="Use formal complaint letter template">📋 Use Template</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Template 3: Service Complaint -->
+      <div class="template-card" role="listitem">
+        <div class="template-preview" aria-hidden="true">
+          <div class="doc-lines">
+            <div class="doc-line title"></div>
+            <div class="doc-line short"></div>
+            <div class="doc-line"></div>
+            <div class="doc-line mid"></div>
+            <div class="doc-line"></div>
+            <div class="doc-line short"></div>
+            <div class="doc-line mid"></div>
+          </div>
+        </div>
+        <div class="template-info">
+          <span class="tag tag-warning mb-2">Service Issue</span>
+          <h3>Service Complaint Letter</h3>
+          <p>For when a paid service (repair, installation, delivery) was not delivered to the standard you were promised.</p>
+          <div class="template-actions">
+            <button class="btn btn-primary btn-sm" onclick="openModal('modal-service')" aria-label="Preview service complaint letter">👁 Preview</button>
+            <button class="btn btn-outline btn-sm" onclick="openModal('modal-service')" aria-label="Use service complaint letter template">📋 Use Template</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Template 4: Billing Dispute -->
+      <div class="template-card" role="listitem">
+        <div class="template-preview" aria-hidden="true">
+          <div class="doc-lines">
+            <div class="doc-line title"></div>
+            <div class="doc-line mid"></div>
+            <div class="doc-line short"></div>
+            <div class="doc-line"></div>
+            <div class="doc-line mid"></div>
+            <div class="doc-line"></div>
+            <div class="doc-line short"></div>
+          </div>
+        </div>
+        <div class="template-info">
+          <span class="tag tag-primary mb-2">Billing</span>
+          <h3>Billing Dispute Letter</h3>
+          <p>Use this to formally dispute an incorrect charge, double billing, or an unauthorised transaction with a business.</p>
+          <div class="template-actions">
+            <button class="btn btn-primary btn-sm" onclick="openModal('modal-billing')" aria-label="Preview billing dispute letter">👁 Preview</button>
+            <button class="btn btn-outline btn-sm" onclick="openModal('modal-billing')" aria-label="Use billing dispute letter template">📋 Use Template</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Helpful Tip -->
+    <div class="alert alert-success mt-4" role="note">
+      <div class="alert-icon" aria-hidden="true">📬</div>
+      <div class="alert-body">
+        <div class="alert-title">Send by email or post</div>
+        <p>Send your letter to the business's customer service email or postal address. Always keep a copy for your records. If sending by post, use registered mail so you have proof of delivery.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ===== MODAL: Refund Request ===== -->
+<div class="modal-overlay" id="modal-refund" role="dialog" aria-modal="true" aria-labelledby="modal-refund-title">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2 id="modal-refund-title">📄 Refund Request Letter</h2>
+      <button class="modal-close" onclick="closeModal('modal-refund')" aria-label="Close preview">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="letter-block">
+        <p><span class="field">[Your Full Name]</span><br>
+        <span class="field">[Your Address]</span><br>
+        <span class="field">[Date]</span></p>
+
+        <p><strong>The Manager / Customer Service</strong><br>
+        <span class="field">[Business Name]</span><br>
+        <span class="field">[Business Address]</span></p>
+
+        <p><strong>Subject: Request for Refund — Faulty Product</strong></p>
+
+        <p>Dear Sir/Madam,</p>
+
+        <p>I am writing to formally request a full refund for a product I purchased from your store on <span class="field">[date of purchase]</span>. The item in question is a <span class="field">[product name and model]</span>, purchased for <span class="field">$[amount]</span> with receipt number <span class="field">[receipt number]</span>.</p>
+
+        <p>Since <span class="field">[date problem noticed]</span>, the product has <span class="field">[describe the fault clearly — e.g. "stopped working entirely" / "does not perform as advertised"]</span>. This constitutes a major failure under the Australian Consumer Law (Competition and Consumer Act 2010, Schedule 2).</p>
+
+        <p>Under Australian Consumer Law, I am entitled to choose the remedy I prefer when a product has a major failure. I am requesting a <strong>full refund</strong> of <span class="field">$[amount]</span>.</p>
+
+        <p>Please respond to this request within <strong>14 days</strong> of receiving this letter. If I do not receive a satisfactory response, I will escalate this matter to <span class="field">[NSW Fair Trading / Consumer Affairs Victoria / relevant state body]</span> and/or the Australian Competition and Consumer Commission (ACCC).</p>
+
+        <p>I have attached <span class="field">[list what you're attaching: receipt, photos, etc.]</span> as supporting evidence.</p>
+
+        <p>Yours sincerely,</p>
+        <p><span class="field">[Your Name]</span><br>
+        <span class="field">[Phone Number]</span><br>
+        <span class="field">[Email Address]</span></p>
+      </div>
+      <div class="flex-gap mt-3">
+        <button class="btn btn-primary" onclick="copyLetter('modal-refund')" aria-label="Copy letter to clipboard">📋 Copy to Clipboard</button>
+        <button class="btn btn-ghost" onclick="closeModal('modal-refund')" aria-label="Close preview">✕ Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL: Formal Complaint ===== -->
+<div class="modal-overlay" id="modal-complaint" role="dialog" aria-modal="true" aria-labelledby="modal-complaint-title">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2 id="modal-complaint-title">📄 Formal Complaint Letter</h2>
+      <button class="modal-close" onclick="closeModal('modal-complaint')" aria-label="Close preview">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="letter-block">
+        <p><span class="field">[Your Full Name]</span><br>
+        <span class="field">[Your Address]</span><br>
+        <span class="field">[Date]</span></p>
+
+        <p><strong>The Manager / Customer Service</strong><br>
+        <span class="field">[Business Name]</span></p>
+
+        <p><strong>Subject: Formal Complaint and Notice of Intention to Escalate</strong></p>
+
+        <p>Dear Sir/Madam,</p>
+
+        <p>I am writing as a follow-up to my previous correspondence dated <span class="field">[date of first contact]</span>, regarding a <span class="field">[faulty product / poor service / incorrect billing]</span>. To date, I have not received a satisfactory response from your business.</p>
+
+        <p>I wish to make clear that under the <strong>Australian Consumer Law</strong>, I have statutory rights that cannot be excluded by any business policy, including "no refund" signs or policies. My entitlement to a remedy exists independently of your store's policies.</p>
+
+        <p>I am formally requesting that you provide <span class="field">[refund / replacement / repair]</span> within <strong>7 days</strong> of this notice.</p>
+
+        <p>Should you fail to respond or refuse this request, I will immediately lodge a formal complaint with <span class="field">[relevant Fair Trading office]</span> and report your business to the ACCC for potential non-compliance with Australian Consumer Law.</p>
+
+        <p>Yours sincerely,</p>
+        <p><span class="field">[Your Name]</span><br>
+        <span class="field">[Contact Details]</span></p>
+      </div>
+      <div class="flex-gap mt-3">
+        <button class="btn btn-primary" onclick="copyLetter('modal-complaint')" aria-label="Copy letter to clipboard">📋 Copy to Clipboard</button>
+        <button class="btn btn-ghost" onclick="closeModal('modal-complaint')">✕ Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL: Service Complaint ===== -->
+<div class="modal-overlay" id="modal-service" role="dialog" aria-modal="true" aria-labelledby="modal-service-title">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2 id="modal-service-title">📄 Service Complaint Letter</h2>
+      <button class="modal-close" onclick="closeModal('modal-service')" aria-label="Close preview">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="letter-block">
+        <p><span class="field">[Your Full Name]</span><br>
+        <span class="field">[Your Address]</span><br>
+        <span class="field">[Date]</span></p>
+
+        <p><strong>The Manager</strong><br>
+        <span class="field">[Business Name]</span></p>
+
+        <p><strong>Subject: Complaint Regarding Service Quality</strong></p>
+
+        <p>Dear Sir/Madam,</p>
+
+        <p>I am writing to formally complain about the service I received on <span class="field">[date of service]</span>. I engaged your business to <span class="field">[describe the service, e.g. "repair my washing machine"]</span> for the agreed price of <span class="field">$[amount]</span>.</p>
+
+        <p>The service was not performed with due care and skill as required under the Australian Consumer Law. Specifically, <span class="field">[describe exactly what went wrong — e.g. "the repair was incomplete and the machine still does not work"]</span>.</p>
+
+        <p>Under Australian Consumer Law, services must be provided with due care and skill, and must be reasonably fit for the purpose. I am requesting that you <span class="field">[re-do the work at no charge / provide a refund of $[amount]]</span> within <strong>14 days</strong>.</p>
+
+        <p>Yours sincerely,</p>
+        <p><span class="field">[Your Name]</span><br>
+        <span class="field">[Contact Details]</span></p>
+      </div>
+      <div class="flex-gap mt-3">
+        <button class="btn btn-primary" onclick="copyLetter('modal-service')">📋 Copy to Clipboard</button>
+        <button class="btn btn-ghost" onclick="closeModal('modal-service')">✕ Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL: Billing Dispute ===== -->
+<div class="modal-overlay" id="modal-billing" role="dialog" aria-modal="true" aria-labelledby="modal-billing-title">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2 id="modal-billing-title">📄 Billing Dispute Letter</h2>
+      <button class="modal-close" onclick="closeModal('modal-billing')" aria-label="Close preview">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="letter-block">
+        <p><span class="field">[Your Full Name]</span><br>
+        <span class="field">[Your Address]</span><br>
+        <span class="field">[Date]</span></p>
+
+        <p><strong>Customer Service / Billing Department</strong><br>
+        <span class="field">[Business Name]</span></p>
+
+        <p><strong>Subject: Billing Dispute — Reference <span class="field">[Invoice/Order Number]</span></strong></p>
+
+        <p>Dear Sir/Madam,</p>
+
+        <p>I am writing to dispute a charge on my account. On <span class="field">[date]</span>, I was charged <span class="field">$[amount]</span> by your business. This charge is incorrect because <span class="field">[explain why — e.g. "I was charged twice for the same transaction" / "I did not authorise this charge" / "the amount differs from what was agreed"]</span>.</p>
+
+        <p>I am requesting an immediate correction of this billing error and a refund of <span class="field">$[amount]</span> to <span class="field">[my original payment method / my account]</span>.</p>
+
+        <p>Please respond within <strong>7 days</strong>. If this is not resolved promptly, I will report this matter to my bank and to the relevant consumer protection authority.</p>
+
+        <p>Yours sincerely,</p>
+        <p><span class="field">[Your Name]</span><br>
+        <span class="field">[Contact Details]</span></p>
+      </div>
+      <div class="flex-gap mt-3">
+        <button class="btn btn-primary" onclick="copyLetter('modal-billing')">📋 Copy to Clipboard</button>
+        <button class="btn btn-ghost" onclick="closeModal('modal-billing')">✕ Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="inner">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <span>© 2026 Consumer Rights Hub — For educational purposes only</span>
+      <span>Based on Australian Consumer Law</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  function openModal(id) {
+    const m = document.getElementById(id);
+    if (m) { m.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  }
+  function closeModal(id) {
+    const m = document.getElementById(id);
+    if (m) { m.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+  function copyLetter(modalId) {
+    const text = document.querySelector('#' + modalId + ' .letter-block')?.innerText;
+    if (text) {
+      navigator.clipboard?.writeText(text).then(() => {
+        alert('Letter copied to clipboard! Paste it into Word or your email client.');
+      }).catch(() => {
+        alert('Please select and copy the letter text manually.');
+      });
+    }
+  }
+  // Close modal on overlay click
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal(overlay.id);
+    });
+  });
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
+    }
+  });
+</script>
+</body>
+</html>

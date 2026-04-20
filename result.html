@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Rights — Consumer Rights Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- Accessibility Bar -->
+<div class="a11y-bar" role="toolbar" aria-label="Accessibility settings">
+  <div class="inner">
+    <span class="label">Accessibility:</span>
+    <button class="a11y-btn" id="btn-contrast" onclick="toggleContrast()">⬛ High Contrast</button>
+    <span class="a11y-separator" aria-hidden="true">|</span>
+    <span class="label">Text Size:</span>
+    <button class="a11y-btn" data-size="default" onclick="setTextSize('default')">A</button>
+    <button class="a11y-btn" data-size="lg"      onclick="setTextSize('lg')" style="font-size:18px">A</button>
+    <button class="a11y-btn" data-size="xl"      onclick="setTextSize('xl')" style="font-size:21px">A</button>
+    <span class="a11y-separator" aria-hidden="true">|</span>
+    <a class="a11y-btn" href="accessibility.html">⚙ More Settings</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header" role="banner">
+  <div class="inner">
+    <a class="site-logo" href="index.html" aria-label="Consumer Rights Hub home">
+      <div class="logo-icon" aria-hidden="true">⚖</div>
+      Consumer Rights Hub
+    </a>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="issue-classifier.html" class="active">Check My Rights</a>
+      <a href="templates.html">Templates</a>
+      <a href="complaint-pathway.html">How to Complain</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="page-wrap narrow">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep" aria-hidden="true">›</span>
+      <a href="issue-classifier.html">Identify Issue</a>
+      <span class="sep" aria-hidden="true">›</span>
+      <a href="rights-checker.html">Rights Checker</a>
+      <span class="sep" aria-hidden="true">›</span>
+      <span class="current" aria-current="page">Your Rights</span>
+    </nav>
+
+    <!-- Flow Steps -->
+    <div class="step-row" role="list" aria-label="Progress steps">
+      <div class="step-item" role="listitem">
+        <div class="step-circle done" aria-label="Step 1 completed">✓</div>
+        <span class="step-label done">Identify Issue</span>
+      </div>
+      <div class="step-connector done" aria-hidden="true"></div>
+      <div class="step-item" role="listitem">
+        <div class="step-circle done" aria-label="Step 2 completed">✓</div>
+        <span class="step-label done">Check Rights</span>
+      </div>
+      <div class="step-connector done" aria-hidden="true"></div>
+      <div class="step-item" role="listitem">
+        <div class="step-circle active" aria-label="Step 3, current: Your Result">3</div>
+        <span class="step-label active">Your Result</span>
+      </div>
+      <div class="step-connector" aria-hidden="true"></div>
+      <div class="step-item" role="listitem">
+        <div class="step-circle" aria-label="Step 4: Take Action">4</div>
+        <span class="step-label">Take Action</span>
+      </div>
+    </div>
+
+    <!-- Page Title -->
+    <h1 class="page-title">Your Rights Summary</h1>
+    <p class="page-subtitle">Based on your answers, here is what Australian Consumer Law says about your situation.</p>
+
+    <!-- Your Selections Summary -->
+    <div class="card mb-3" style="border:none; background:var(--bg);" aria-label="Summary of your answers">
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <div class="highlight-box" style="flex:1; min-width:160px;">
+          <div class="hb-label">Issue Type</div>
+          <div class="hb-value">🛒 Faulty Product</div>
+        </div>
+        <div class="highlight-box" style="flex:1; min-width:160px;">
+          <div class="hb-label">Purchase Timing</div>
+          <div class="hb-value">📅 Less than 30 days ago</div>
+        </div>
+        <div class="highlight-box" style="flex:1; min-width:160px;">
+          <div class="hb-label">Seller Contact</div>
+          <div class="hb-value">❌ Refused to help</div>
+        </div>
+        <div class="highlight-box" style="flex:1; min-width:160px;">
+          <div class="hb-label">You Want</div>
+          <div class="hb-value">💸 Full Refund</div>
+        </div>
+      </div>
+      <p style="font-size:var(--font-sm); color:var(--text-muted); margin-top:8px;">
+        <a href="rights-checker.html" style="color:var(--primary);">← Change my answers</a>
+      </p>
+    </div>
+
+    <!-- Main Result Box -->
+    <div class="result-box" role="region" aria-label="Your rights result">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:6px;">
+        <div class="result-label" aria-hidden="true" style="margin-bottom:0;">✅ Result</div>
+        <a href="https://www.accc.gov.au/consumers/consumer-rights-guarantees/repairs-replacements-refunds"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="View Australian Consumer Law on the ACCC official website (opens in new tab)"
+           style="display:flex; align-items:center; gap:6px; background:rgba(255,255,255,0.55); border:1px solid rgba(30,120,60,0.25); border-radius:20px; padding:4px 12px; text-decoration:none; transition: background .2s;"
+           onmouseover="this.style.background='rgba(255,255,255,0.9)'"
+           onmouseout="this.style.background='rgba(255,255,255,0.55)'">
+          <span style="font-size:13px;">🏛</span>
+          <span style="font-size:12px; font-weight:600; color:var(--success);">Based on Australian Consumer Law</span>
+          <span style="font-size:10px; color:var(--success); opacity:0.7;">↗</span>
+        </a>
+      </div>
+
+      <div class="result-title">You have strong consumer rights in this situation.</div>
+      <p style="color:var(--text-primary); margin-bottom:20px;">
+        Under <strong>Australian Consumer Law (ACL)</strong>, when a product has a major failure, you are entitled to choose your preferred remedy.
+        Because the seller has refused your request, you have the right to escalate this complaint.
+      </p>
+      <ul class="result-rights" aria-label="Your specific rights">
+        <li>
+          <strong>Right to a full refund</strong> — You can demand a full refund when a product has a major failure, even if the seller disagrees.
+        </li>
+        <li>
+          <strong>Right to a replacement</strong> — If you prefer, you can ask for a replacement product of the same type and quality.
+        </li>
+        <li>
+          <strong>Right to compensation</strong> — If you suffered additional loss due to the faulty product, you may be entitled to compensation on top of a remedy.
+        </li>
+        <li>
+          <strong>Cannot be limited by store policy</strong> — "No refund" signs and policies do not override your rights under Australian Consumer Law.
+        </li>
+      </ul>
+
+      <!-- Why this result? -->
+      <div style="margin-top:16px; border-top:1px solid rgba(30,120,60,0.2); padding-top:14px;">
+        <button
+          id="why-toggle"
+          onclick="toggleWhy()"
+          aria-expanded="false"
+          aria-controls="why-body"
+          style="background:none; border:none; cursor:pointer; display:flex; align-items:center; gap:8px; font-size:var(--font-sm); font-weight:600; color:var(--success); padding:0;">
+          <span id="why-chevron" style="font-size:11px; transition:transform .2s;">▶</span>
+          Why this result?
+        </button>
+        <div id="why-body" style="display:none; margin-top:12px; font-size:var(--font-sm); color:var(--text-secondary); display:none; flex-direction:column; gap:8px;">
+          <p>This result is based on three things you told us:</p>
+          <ul style="padding-left:18px; display:flex; flex-direction:column; gap:6px;">
+            <li><strong>Recent purchase</strong> — Products bought within 30 days carry the strongest consumer protections under ACL.</li>
+            <li><strong>Major failure</strong> — A product that stops working or is defective qualifies as a major failure, entitling you to choose your own remedy.</li>
+            <li><strong>Seller refused</strong> — Once a business refuses a valid remedy request, you have the right to escalate to Fair Trading or a tribunal.</li>
+          </ul>
+          <p style="color:var(--text-muted); font-size:11px; margin-top:4px;">
+            Australian Consumer Law is federal law and applies equally in every state and territory.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- What Counts as a "Major Failure"? Accordion -->
+    <div class="accordion-item mb-3">
+      <div class="accordion-header" tabindex="0" role="button" aria-expanded="false" aria-controls="accordion-major">
+        <span>📖 What counts as a "major failure"?</span>
+        <span class="chevron" aria-hidden="true">▼</span>
+      </div>
+      <div class="accordion-body" id="accordion-major">
+        <p style="margin-bottom:12px;">Under Australian Consumer Law, a product has a <strong>major failure</strong> if:</p>
+        <ul style="padding-left:20px; display:flex; flex-direction:column; gap:8px; color:var(--text-secondary);">
+          <li>A reasonable person would not have bought it if they knew about the problem</li>
+          <li>It is significantly different from the description or sample</li>
+          <li>It is substantially unfit for its purpose and cannot easily be fixed</li>
+          <li>It is unsafe</li>
+        </ul>
+        <p style="margin-top:12px; color:var(--text-muted); font-size:var(--font-sm);">
+          Source: Competition and Consumer Act 2010, Schedule 2, Section 260
+        </p>
+      </div>
+    </div>
+
+    <!-- Legal Source Reference -->
+    <div class="accordion-item mb-3">
+      <div class="accordion-header" tabindex="0" role="button" aria-expanded="false" aria-controls="accordion-legal">
+        <span>🏛 Legal basis for these rights</span>
+        <span class="chevron" aria-hidden="true">▼</span>
+      </div>
+      <div class="accordion-body" id="accordion-legal">
+        <p style="margin-bottom:12px;">Your rights come from the following legislation:</p>
+        <ul style="padding-left:20px; display:flex; flex-direction:column; gap:8px; color:var(--text-secondary);">
+          <li><strong>Australian Consumer Law (ACL)</strong> — Consumer guarantees for goods: Sections 51–64</li>
+          <li><strong>Remedy rights:</strong> Sections 259–267 — Right to repair, replacement, or refund</li>
+          <li><strong>No exclusion of consumer guarantees</strong> — Section 64A: Any term purporting to limit or exclude ACL rights is void</li>
+        </ul>
+        <div class="alert alert-info mt-3" role="note">
+          <div class="alert-icon" aria-hidden="true">ℹ️</div>
+          <div class="alert-body">
+            <p>This is general information. For specific legal advice, contact the <strong>ACCC</strong>, your state's <strong>Fair Trading office</strong>, or a qualified lawyer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- What to Do Next CTA -->
+    <div class="card" style="background: var(--primary-light); border-color: var(--primary);" role="region" aria-label="Next steps prompt">
+      <h2 style="font-size:var(--font-xl); font-weight:700; margin-bottom:10px; color:var(--primary);">
+        What should I do now?
+      </h2>
+      <p style="margin-bottom:20px; color:var(--text-secondary);">
+        Now that you know your rights, we'll walk you through exactly what to do — step by step. We'll also give you a complaint letter template ready to send.
+      </p>
+      <div class="flex-gap">
+        <a href="action.html" class="btn btn-primary btn-lg">
+          ▶ Get My Action Plan
+        </a>
+        <a href="templates.html" class="btn btn-outline">
+          📄 Get Letter Template
+        </a>
+      </div>
+    </div>
+
+    <!-- Share / Save -->
+    <div style="margin-top:20px; text-align:center;">
+      <p style="color:var(--text-muted); font-size:var(--font-sm); margin-bottom:12px;">Want to save this information?</p>
+      <div class="flex-gap" style="justify-content:center;">
+        <button class="btn btn-ghost btn-sm" onclick="window.print()" aria-label="Print this page">🖨 Print / Save as PDF</button>
+        <button class="btn btn-ghost btn-sm" aria-label="Share this result">📤 Share</button>
+        <a href="issue-classifier.html" class="btn btn-ghost btn-sm" aria-label="Start over with a new issue">🔄 Start Over</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="inner">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <span>© 2026 Consumer Rights Hub — For educational purposes only</span>
+      <span>Based on Australian Consumer Law</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  function toggleWhy() {
+    const body    = document.getElementById('why-body');
+    const chevron = document.getElementById('why-chevron');
+    const btn     = document.getElementById('why-toggle');
+    const open    = body.style.display === 'flex';
+    body.style.display    = open ? 'none' : 'flex';
+    chevron.style.transform = open ? 'rotate(0deg)' : 'rotate(90deg)';
+    btn.setAttribute('aria-expanded', String(!open));
+  }
+</script>
+</body>
+</html>

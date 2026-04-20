@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consumer Rights Hub — Know Your Rights</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- Skip Navigation -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- Accessibility Bar -->
+<div class="a11y-bar" role="toolbar" aria-label="Accessibility settings">
+  <div class="inner">
+    <span class="label">Accessibility:</span>
+    <button class="a11y-btn" id="btn-contrast" onclick="toggleContrast()" aria-label="Toggle high contrast mode">
+      ⬛ High Contrast
+    </button>
+    <span class="a11y-separator" aria-hidden="true">|</span>
+    <span class="label">Text Size:</span>
+    <button class="a11y-btn" data-size="default" onclick="setTextSize('default')" aria-label="Default text size">A</button>
+    <button class="a11y-btn" data-size="lg"      onclick="setTextSize('lg')"      aria-label="Large text size" style="font-size:18px">A</button>
+    <button class="a11y-btn" data-size="xl"      onclick="setTextSize('xl')"      aria-label="Extra large text size" style="font-size:21px">A</button>
+    <span class="a11y-separator" aria-hidden="true">|</span>
+    <a class="a11y-btn" href="accessibility.html" aria-label="All accessibility settings">⚙ More Settings</a>
+    <div class="spacer"></div>
+    <span style="opacity:.7;font-size:13px;">ℹ Based on Australian Consumer Law</span>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header" role="banner">
+  <div class="inner">
+    <a class="site-logo" href="index.html" aria-label="Consumer Rights Hub home">
+      <div class="logo-icon" aria-hidden="true">⚖</div>
+      Consumer Rights Hub
+    </a>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="issue-classifier.html">Check My Rights</a>
+      <a href="templates.html">Templates</a>
+      <a href="complaint-pathway.html">How to Complain</a>
+    </nav>
+    <a href="issue-classifier.html" class="btn btn-primary btn-sm header-cta">
+      ▶ Get Started
+    </a>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="inner">
+    <p class="hero-eyebrow" aria-hidden="true">🇦🇺 Australian Consumer Law</p>
+    <h1 id="hero-heading">Know Your Consumer Rights.<br>Get Clear, Actionable Help.</h1>
+    <p class="sub">
+      Facing a refund dispute, faulty product, or billing problem?
+      Answer a few questions and we'll tell you exactly what your rights are — in plain English.
+    </p>
+    <div class="hero-actions">
+      <a href="issue-classifier.html" class="btn-hero-primary">
+        ✅ Check My Rights
+      </a>
+      <a href="complaint-pathway.html" class="btn-hero-outline">
+        📋 How to Complain
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content -->
+<main id="main-content">
+
+  <!-- Quick Issue Access -->
+  <section class="section section-bg" aria-labelledby="issues-heading">
+    <div class="section-inner">
+      <h2 class="section-title" id="issues-heading">What type of issue do you have?</h2>
+      <p class="section-sub">Select your situation and we'll guide you to the right information fast.</p>
+      <div class="grid-3">
+
+        <a href="issue-classifier.html?issue=faulty" class="issue-card" role="button" aria-label="Faulty or defective product issue">
+          <div class="icon" aria-hidden="true">🛒</div>
+          <div class="name">Faulty Product</div>
+          <div class="hint">Product stopped working, broken, or unsafe</div>
+        </a>
+
+        <a href="issue-classifier.html?issue=refund" class="issue-card" role="button" aria-label="Refund refused issue">
+          <div class="icon" aria-hidden="true">💸</div>
+          <div class="name">Refund Refused</div>
+          <div class="hint">Seller won't give you a refund or replacement</div>
+        </a>
+
+        <a href="issue-classifier.html?issue=service" class="issue-card" role="button" aria-label="Poor service issue">
+          <div class="icon" aria-hidden="true">🔧</div>
+          <div class="name">Poor Service</div>
+          <div class="hint">Service didn't meet the promised standard</div>
+        </a>
+
+        <a href="issue-classifier.html?issue=billing" class="issue-card" role="button" aria-label="Incorrect billing issue">
+          <div class="icon" aria-hidden="true">🧾</div>
+          <div class="name">Incorrect Billing</div>
+          <div class="hint">Charged the wrong amount or double charged</div>
+        </a>
+
+        <a href="issue-classifier.html?issue=online" class="issue-card" role="button" aria-label="Online purchase issue">
+          <div class="icon" aria-hidden="true">📦</div>
+          <div class="name">Online Purchase</div>
+          <div class="hint">Item not delivered or not as described online</div>
+        </a>
+
+        <a href="issue-classifier.html?issue=other" class="issue-card" role="button" aria-label="Other consumer issue">
+          <div class="icon" aria-hidden="true">❓</div>
+          <div class="name">Other Issue</div>
+          <div class="hint">Something else — we'll help you figure it out</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section" aria-labelledby="how-heading">
+    <div class="section-inner">
+      <h2 class="section-title text-center" id="how-heading">How It Works</h2>
+      <p class="section-sub text-center">Three simple steps from problem to solution.</p>
+      <div class="grid-3 mt-3">
+        <div class="how-step">
+          <div class="num" aria-hidden="true">1</div>
+          <h3>Describe Your Issue</h3>
+          <p>Tell us what type of consumer problem you're dealing with — no legal knowledge needed.</p>
+        </div>
+        <div class="how-step">
+          <div class="num" aria-hidden="true">2</div>
+          <h3>Check Your Rights</h3>
+          <p>Our Rights Checker asks simple questions and tells you exactly what you're entitled to under Australian Consumer Law.</p>
+        </div>
+        <div class="how-step">
+          <div class="num" aria-hidden="true">3</div>
+          <h3>Take Action</h3>
+          <p>Get a clear step-by-step plan, complaint letter template, and links to official bodies — ready to go.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust & Credibility Bar -->
+  <section class="section section-bg" aria-label="Trust and credibility information">
+    <div class="section-inner">
+      <h2 class="section-title" id="trust-heading">Why Trust This Information?</h2>
+      <p class="section-sub">All content is based on official Australian legislation and consumer protection bodies.</p>
+      <div class="trust-bar" role="list">
+        <div class="trust-badge" role="listitem">
+          <span class="icon" aria-hidden="true">📜</span>
+          <span>Based on <strong>Australian Consumer Law</strong> (Competition and Consumer Act 2010)</span>
+        </div>
+        <div class="trust-divider" aria-hidden="true"></div>
+        <div class="trust-badge" role="listitem">
+          <span class="icon" aria-hidden="true">🏛</span>
+          <span>Aligned with <strong>ACCC</strong> guidelines</span>
+        </div>
+        <div class="trust-divider" aria-hidden="true"></div>
+        <div class="trust-badge" role="listitem">
+          <span class="icon" aria-hidden="true">🔒</span>
+          <span><strong>No personal data</strong> collected or stored</span>
+        </div>
+        <div class="trust-divider" aria-hidden="true"></div>
+        <div class="trust-badge" role="listitem">
+          <span class="icon" aria-hidden="true">♿</span>
+          <span>Designed for <strong>all users</strong> including elderly &amp; visually impaired</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alert — Not Legal Advice -->
+  <section class="section" aria-label="Legal disclaimer">
+    <div class="section-inner">
+      <div class="alert alert-info" role="note">
+        <div class="alert-icon" aria-hidden="true">ℹ️</div>
+        <div class="alert-body">
+          <div class="alert-title">This is general information, not legal advice</div>
+          <p>Consumer Rights Hub provides general guidance based on Australian Consumer Law. For complex situations or formal legal advice, please consult a qualified lawyer or contact your state's Legal Aid service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2>⚖ Consumer Rights Hub</h2>
+        <p>Helping Australians understand and exercise their consumer rights through clear, accessible guidance based on Australian Consumer Law.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Get Help</h3>
+        <a href="issue-classifier.html">Check My Rights</a>
+        <a href="rights-checker.html">Rights Checker</a>
+        <a href="complaint-pathway.html">How to Complain</a>
+        <a href="templates.html">Templates</a>
+      </div>
+      <div class="footer-col">
+        <h3>Legal Areas</h3>
+        <a href="issue-classifier.html?issue=faulty">Faulty Products</a>
+        <a href="issue-classifier.html?issue=refund">Refunds</a>
+        <a href="issue-classifier.html?issue=service">Services</a>
+        <a href="issue-classifier.html?issue=billing">Billing</a>
+      </div>
+      <div class="footer-col">
+        <h3>Support</h3>
+        <a href="accessibility.html">Accessibility Settings</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Consumer Rights Hub — For educational purposes only</span>
+      <span>Based on Australian Consumer Law</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

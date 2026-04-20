@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rights Checker — Consumer Rights Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- Accessibility Bar -->
+<div class="a11y-bar" role="toolbar" aria-label="Accessibility settings">
+  <div class="inner">
+    <span class="label">Accessibility:</span>
+    <button class="a11y-btn" id="btn-contrast" onclick="toggleContrast()">⬛ High Contrast</button>
+    <span class="a11y-separator" aria-hidden="true">|</span>
+    <span class="label">Text Size:</span>
+    <button class="a11y-btn" data-size="default" onclick="setTextSize('default')">A</button>
+    <button class="a11y-btn" data-size="lg"      onclick="setTextSize('lg')" style="font-size:18px">A</button>
+    <button class="a11y-btn" data-size="xl"      onclick="setTextSize('xl')" style="font-size:21px">A</button>
+    <span class="a11y-separator" aria-hidden="true">|</span>
+    <a class="a11y-btn" href="accessibility.html">⚙ More Settings</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header" role="banner">
+  <div class="inner">
+    <a class="site-logo" href="index.html" aria-label="Consumer Rights Hub home">
+      <div class="logo-icon" aria-hidden="true">⚖</div>
+      Consumer Rights Hub
+    </a>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="issue-classifier.html" class="active">Check My Rights</a>
+      <a href="templates.html">Templates</a>
+      <a href="complaint-pathway.html">How to Complain</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="page-wrap narrow">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep" aria-hidden="true">›</span>
+      <a href="issue-classifier.html">Identify Your Issue</a>
+      <span class="sep" aria-hidden="true">›</span>
+      <span class="current" aria-current="page">Rights Checker</span>
+    </nav>
+
+    <!-- Overall Flow Steps -->
+    <div class="step-row" role="list" aria-label="Progress steps">
+      <div class="step-item" role="listitem">
+        <div class="step-circle done" aria-label="Step 1 completed: Identify Issue">✓</div>
+        <span class="step-label done">Identify Issue</span>
+      </div>
+      <div class="step-connector done" aria-hidden="true"></div>
+      <div class="step-item" role="listitem">
+        <div class="step-circle active" aria-label="Step 2, current: Check Rights">2</div>
+        <span class="step-label active">Check Rights</span>
+      </div>
+      <div class="step-connector" aria-hidden="true"></div>
+      <div class="step-item" role="listitem">
+        <div class="step-circle" aria-label="Step 3: Your Result">3</div>
+        <span class="step-label">Your Result</span>
+      </div>
+      <div class="step-connector" aria-hidden="true"></div>
+      <div class="step-item" role="listitem">
+        <div class="step-circle" aria-label="Step 4: Take Action">4</div>
+        <span class="step-label">Take Action</span>
+      </div>
+    </div>
+
+    <!-- Progress Within Checker -->
+    <div class="progress-wrap" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Rights checker progress">
+      <div class="progress-label">
+        <span id="progress-label">Step 1 of 4</span>
+        <span id="progress-pct">0% complete</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <!-- ===================== STEP 1 ===================== -->
+    <div class="wizard-step" id="step-1" aria-live="polite">
+      <div class="card">
+        <p class="tag tag-primary mb-2">Question 1 of 4</p>
+        <h2 style="font-size: var(--font-xl); font-weight:700; margin-bottom:12px;">
+          When did you purchase the product or service?
+        </h2>
+        <p style="color:var(--text-secondary); margin-bottom:24px;">
+          The time since your purchase can affect your rights. Choose the option that applies to you.
+        </p>
+
+        <div class="choice-list" role="radiogroup" aria-label="Purchase timing">
+
+          <label class="choice-item selected">
+            <input type="radio" name="q1" value="30days" checked />
+            <div class="choice-text">
+              <div class="title">Less than 30 days ago</div>
+              <div class="desc">You bought it very recently — you generally have the strongest rights here.</div>
+            </div>
+          </label>
+
+          <label class="choice-item">
+            <input type="radio" name="q1" value="12months" />
+            <div class="choice-text">
+              <div class="title">Between 1 month and 12 months ago</div>
+              <div class="desc">You bought it within the past year — your rights still apply in most cases.</div>
+            </div>
+          </label>
+
+          <label class="choice-item">
+            <input type="radio" name="q1" value="over1year" />
+            <div class="choice-text">
+              <div class="title">More than 12 months ago</div>
+              <div class="desc">Older purchases — rights still apply for major failures or safety issues.</div>
+            </div>
+          </label>
+
+          <label class="choice-item">
+            <input type="radio" name="q1" value="unsure" />
+            <div class="choice-text">
+              <div class="title">I'm not sure</div>
+              <div class="desc">That's okay — we'll still help you work out your rights.</div>
+            </div>
+          </label>
+
+        </div>
+      </div>
+
+      <div class="wizard-nav">
+        <button class="btn btn-ghost" id="btn-back" style="visibility:hidden" onclick="RightsChecker.back()">← Back</button>
+        <button class="btn btn-primary btn-lg" onclick="RightsChecker.next()" aria-label="Continue to next question">
+          Next Question →
+        </button>
+      </div>
+    </div>
+
+    <!-- ===================== STEP 2 ===================== -->
+    <div class="wizard-step" id="step-2" style="display:none" aria-live="polite">
+      <div class="card">
+        <p class="tag tag-primary mb-2">Question 2 of 4</p>
+        <h2 style="font-size: var(--font-xl); font-weight:700; margin-bottom:12px;">
+          What is the main problem with the product or service?
+        </h2>
+        <p style="color:var(--text-secondary); margin-bottom:24px;">
+          Describe the type of problem as accurately as you can.
+        </p>
+
+        <div class="choice-list" role="radiogroup" aria-label="Problem type">
+
+          <label class="choice-item selected">
+            <input type="radio" name="q2" value="stopped" checked />
+            <div class="choice-text">
+              <div class="title">It stopped working or is defective</div>
+              <div class="desc">The product broke, malfunctioned, or failed to work as expected.</div>
+            </div>
+          </label>
+
+          <label class="choice-item">
+            <input type="radio" name="q2" value="unsafe" />
+            <div class="choice-text">
+              <div class="title">It is unsafe or poses a health/safety risk</div>
+              <div class="desc">The product could cause injury or harm to you or others.</div>
+            </div>
+          </label>
+
+          <label class="choice-item">
+            <input type="radio" name="q2" value="notfit" />
+            <div class="choice-text">
+              <div class="title">It doesn't do what it's meant to do</div>
+              <div class="desc">The product or service doesn't fulfil its stated purpose.</div>
+            </div>
+          </label>
+
+          <label class="choice-item">
+            <input type="radio" name="q2" value="notdescribed" />
+            <div class="choice-text">
+              <div class="title">It doesn't match the description or advertisement</div>
+              <div class="desc">What you received is different from what was shown or described when you bought it.</div>
+            </div>
+          </label>
+
+        </div>
+      </div>
+
+      <div class="wizard-nav">
+        <button class="btn btn-ghost" id="btn-back" onclick="RightsChecker.back()">← Back</button>
+        <button class="btn btn-primary btn-lg" onclick="RightsChecker.next()" aria-label="Continue to next question">
+          Next Question →
+        </button>
+      </div>
+    </div>
+
+    <!-- ===================== STEP 3 ===================== -->
+    <div class="wizard-step" id="step-3" style="display:none" aria-live="polite">
+      <div class="card">
+        <p class="tag tag-primary mb-2">Question 3 of 4</p>
+        <h2 style="font-size: var(--font-xl); font-weight:700; margin-bottom:12px;">
+          Have you already contacted the seller or business?
+        </h2>
+        <p style="color:var(--text-secondary); margin-bottom:24px;">
+          Tell us where you are in the process — this affects what your next steps should be.
+        </p>
+
+        <div class="choice-list" role="radiogroup" aria-label="Contact history">
+
+          <label class="choice-item selected">
+            <input type="radio" name="q3" value="not_yet" checked />
+            <div class="choice-text">
+              <div class="title">No, I haven't contacted them yet</div>
+              <div class="desc">I want to understand my rights before reaching out.</div>
+            </div>
+          </label>
+
+          <label class="choice-item">
+            <input type="radio" name="q3" value="refused" />
+            <div class="choice-text">
+              <div class="title">Yes — they refused to help me</div>
+              <div class="desc">I contacted them and they said no or ignored my request.</div>
+            </div>
+          </label>
+
+          <label class="choice-item">
+            <input type="radio" name="q3" value="waiting" />
+            <div class="choice-text">
+              <div class="title">Yes — I'm still waiting for their response</div>
+              <div class="desc">I've been in contact but haven't received a satisfactory answer yet.</div>
+            </div>
+          </label>
+
+          <label class="choice-item">
+            <input type="radio" name="q3" value="escalated" />
+            <div class="choice-text">
+              <div class="title">Yes — I've already tried to escalate the complaint</div>
+              <div class="desc">I've contacted an external body (e.g. Fair Trading, ACCC) about this issue.</div>
+            </div>
+          </label>
+
+        </div>
+      </div>
+
+      <div class="wizard-nav">
+        <button class="btn btn-ghost" id="btn-back" onclick="RightsChecker.back()">← Back</button>
+        <button class="btn btn-primary btn-lg" onclick="RightsChecker.next()" aria-label="Continue to next question">
+          Next Question →
+        </button>
+      </div>
+    </div>
+
+    <!-- ===================== STEP 4 ===================== -->
+    <div class="wizard-step" id="step-4" style="display:none" aria-live="polite">
+      <div class="card">
+        <p class="tag tag-primary mb-2">Question 4 of 4</p>
+        <h2 style="font-size: var(--font-xl); font-weight:700; margin-bottom:12px;">
+          What outcome are you looking for?
+        </h2>
+        <p style="color:var(--text-secondary); margin-bottom:24px;">
+          Knowing what you want helps us give you the most relevant guidance.
+        </p>
+
+        <div class="choice-list" role="radiogroup" aria-label="Desired outcome">
+
+          <label class="choice-item selected">
+            <input type="radio" name="q4" value="refund" checked />
+            <div class="choice-text">
+              <div class="title">Full refund of the money I paid</div>
+              <div class="desc">I want all my money back.</div>
+            </div>
+          </label>
+
+          <label class="choice-item">
+            <input type="radio" name="q4" value="replacement" />
+            <div class="choice-text">
+              <div class="title">A replacement product</div>
+              <div class="desc">I'd prefer to get the same product that actually works correctly.</div>
+            </div>
+          </label>
+
+          <label class="choice-item">
+            <input type="radio" name="q4" value="repair" />
+            <div class="choice-text">
+              <div class="title">A repair or fix</div>
+              <div class="desc">I want the product repaired at no cost to me.</div>
+            </div>
+          </label>
+
+          <label class="choice-item">
+            <input type="radio" name="q4" value="rights" />
+            <div class="choice-text">
+              <div class="title">Just understand my rights</div>
+              <div class="desc">I'm not sure yet — I just want to know what I'm entitled to.</div>
+            </div>
+          </label>
+
+        </div>
+
+        <div class="alert alert-success mt-3" role="note">
+          <div class="alert-icon" aria-hidden="true">✅</div>
+          <div class="alert-body">
+            <div class="alert-title">Almost done!</div>
+            <p>Based on your answers, we'll show you a clear summary of your rights under Australian Consumer Law.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wizard-nav">
+        <button class="btn btn-ghost" id="btn-back" onclick="RightsChecker.back()">← Back</button>
+        <a href="result.html" class="btn btn-success btn-lg" aria-label="View your rights result">
+          View My Rights →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="inner">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <span>© 2026 Consumer Rights Hub — For educational purposes only</span>
+      <span>Based on Australian Consumer Law</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Choice item interaction
+  document.querySelectorAll('.choice-item').forEach(item => {
+    item.addEventListener('click', function () {
+      const name = item.querySelector('input')?.name;
+      document.querySelectorAll(`.choice-item input[name="${name}"]`).forEach(r => {
+        r.closest('.choice-item')?.classList.remove('selected');
+      });
+      item.classList.add('selected');
+      const radio = item.querySelector('input[type="radio"]');
+      if (radio) radio.checked = true;
+    });
+  });
+
+  // Update progress percentage
+  const origUpdateUI = RightsChecker;
+  // Override next to update % label
+  const _origNext = RightsChecker.next;
+  document.addEventListener('DOMContentLoaded', function() {
+    // Progress tracking overlay
+    const pcts = ['0%', '25%', '50%', '75%', '100%'];
+    function updatePct(step) {
+      const el = document.getElementById('progress-pct');
+      if (el) el.textContent = pcts[step-1] + ' complete';
+    }
+    // Patch next/back
+    let curStep = 1;
+    window.RightsChecker = {
+      next: function() {
+        if (curStep < 4) {
+          curStep++;
+          _updateCheckerUI(curStep);
+        } else {
+          window.location.href = 'result.html';
+        }
+      },
+      back: function() {
+        if (curStep > 1) { curStep--; _updateCheckerUI(curStep); }
+      }
+    };
+
+    function _updateCheckerUI(step) {
+      document.querySelectorAll('.wizard-step').forEach(el => el.style.display = 'none');
+      const active = document.getElementById('step-' + step);
+      if (active) active.style.display = 'block';
+      const fill = document.getElementById('progress-fill');
+      if (fill) fill.style.width = ((step-1)/4*100) + '%';
+      const label = document.getElementById('progress-label');
+      if (label) label.textContent = 'Step ' + step + ' of 4';
+      updatePct(step);
+      const backBtn = document.querySelector('#step-' + step + ' #btn-back');
+      if (backBtn) backBtn.style.visibility = step > 1 ? 'visible' : 'hidden';
+    }
+
+    _updateCheckerUI(1);
+  });
+</script>
+</body>
+</html>

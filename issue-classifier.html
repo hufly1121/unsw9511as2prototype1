@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Identify Your Issue — Consumer Rights Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- Accessibility Bar -->
+<div class="a11y-bar" role="toolbar" aria-label="Accessibility settings">
+  <div class="inner">
+    <span class="label">Accessibility:</span>
+    <button class="a11y-btn" id="btn-contrast" onclick="toggleContrast()">⬛ High Contrast</button>
+    <span class="a11y-separator" aria-hidden="true">|</span>
+    <span class="label">Text Size:</span>
+    <button class="a11y-btn" data-size="default" onclick="setTextSize('default')">A</button>
+    <button class="a11y-btn" data-size="lg"      onclick="setTextSize('lg')" style="font-size:18px">A</button>
+    <button class="a11y-btn" data-size="xl"      onclick="setTextSize('xl')" style="font-size:21px">A</button>
+    <span class="a11y-separator" aria-hidden="true">|</span>
+    <a class="a11y-btn" href="accessibility.html">⚙ More Settings</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header" role="banner">
+  <div class="inner">
+    <a class="site-logo" href="index.html" aria-label="Consumer Rights Hub home">
+      <div class="logo-icon" aria-hidden="true">⚖</div>
+      Consumer Rights Hub
+    </a>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="issue-classifier.html" class="active">Check My Rights</a>
+      <a href="templates.html">Templates</a>
+      <a href="complaint-pathway.html">How to Complain</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="page-wrap narrow">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep" aria-hidden="true">›</span>
+      <span class="current" aria-current="page">Identify Your Issue</span>
+    </nav>
+
+    <!-- Progress: Step 1 of 3 overall flow -->
+    <div class="step-row" role="list" aria-label="Progress steps">
+      <div class="step-item" role="listitem">
+        <div class="step-circle active" aria-label="Step 1, current: Identify Issue">1</div>
+        <span class="step-label active">Identify Issue</span>
+      </div>
+      <div class="step-connector" aria-hidden="true"></div>
+      <div class="step-item" role="listitem">
+        <div class="step-circle" aria-label="Step 2: Check Rights">2</div>
+        <span class="step-label">Check Rights</span>
+      </div>
+      <div class="step-connector" aria-hidden="true"></div>
+      <div class="step-item" role="listitem">
+        <div class="step-circle" aria-label="Step 3: Your Result">3</div>
+        <span class="step-label">Your Result</span>
+      </div>
+      <div class="step-connector" aria-hidden="true"></div>
+      <div class="step-item" role="listitem">
+        <div class="step-circle" aria-label="Step 4: Take Action">4</div>
+        <span class="step-label">Take Action</span>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h1 class="page-title">What type of issue do you have?</h1>
+    <p class="page-subtitle">
+      Select the option that best describes your situation. Don't worry if you're not sure — choose the closest match.
+    </p>
+
+    <!-- Issue Categories -->
+    <fieldset style="border:none;padding:0;margin:0;" aria-label="Issue type selection">
+      <legend class="sr-only">Select your consumer issue type</legend>
+      <div class="grid-2" id="issue-grid" role="radiogroup">
+
+        <label class="issue-card card-hover" tabindex="0" aria-label="Faulty or defective product">
+          <input type="radio" name="issue-type" value="faulty" class="sr-only" />
+          <div class="icon" aria-hidden="true">🛒</div>
+          <div class="name">Faulty or Defective Product</div>
+          <div class="hint">The product stopped working, is broken, unsafe, or doesn't do what it's supposed to.</div>
+        </label>
+
+        <label class="issue-card card-hover" tabindex="0" aria-label="Product not as described">
+          <input type="radio" name="issue-type" value="described" class="sr-only" />
+          <div class="icon" aria-hidden="true">📋</div>
+          <div class="name">Product Not as Described</div>
+          <div class="hint">The product looks or works differently from what was advertised or shown online.</div>
+        </label>
+
+        <label class="issue-card card-hover" tabindex="0" aria-label="Refund refused">
+          <input type="radio" name="issue-type" value="refund" class="sr-only" />
+          <div class="icon" aria-hidden="true">💸</div>
+          <div class="name">Refund or Return Refused</div>
+          <div class="hint">The seller won't give you a refund, replacement, or repair that you're entitled to.</div>
+        </label>
+
+        <label class="issue-card card-hover" tabindex="0" aria-label="Poor service quality">
+          <input type="radio" name="issue-type" value="service" class="sr-only" />
+          <div class="icon" aria-hidden="true">🔧</div>
+          <div class="name">Poor Service Quality</div>
+          <div class="hint">A service (repair, installation, delivery, etc.) wasn't done to the promised standard.</div>
+        </label>
+
+        <label class="issue-card card-hover" tabindex="0" aria-label="Incorrect billing">
+          <input type="radio" name="issue-type" value="billing" class="sr-only" />
+          <div class="icon" aria-hidden="true">🧾</div>
+          <div class="name">Incorrect Billing or Charges</div>
+          <div class="hint">You were charged the wrong amount, charged multiple times, or billed for something you didn't buy.</div>
+        </label>
+
+        <label class="issue-card card-hover" tabindex="0" aria-label="Other consumer issue">
+          <input type="radio" name="issue-type" value="other" class="sr-only" />
+          <div class="icon" aria-hidden="true">❓</div>
+          <div class="name">Something Else</div>
+          <div class="hint">My situation doesn't fit the options above — I still need help.</div>
+        </label>
+
+      </div>
+    </fieldset>
+
+    <!-- Info Alert -->
+    <div class="alert alert-info mt-4" role="note">
+      <div class="alert-icon" aria-hidden="true">💡</div>
+      <div class="alert-body">
+        <div class="alert-title">Not sure which to pick?</div>
+        <p>Choose the option that most closely matches your situation. You can always go back and change it. Our Rights Checker will ask more specific questions to clarify.</p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="wizard-nav">
+      <a href="index.html" class="btn btn-ghost">← Back to Home</a>
+      <a href="rights-checker.html" class="btn btn-primary btn-lg" id="btn-next-issue" aria-label="Continue to Rights Checker">
+        Continue → Check My Rights
+      </a>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="inner">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <span>© 2026 Consumer Rights Hub — For educational purposes only</span>
+      <span>Based on Australian Consumer Law</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Highlight card when keyboard selected
+  document.querySelectorAll('.issue-card').forEach(card => {
+    const radio = card.querySelector('input[type="radio"]');
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.issue-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      if (radio) radio.checked = true;
+    });
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+
+  // Pre-select from URL param for demo
+  const params = new URLSearchParams(window.location.search);
+  const preselect = params.get('issue');
+  if (preselect) {
+    const target = document.querySelector(`input[value="${preselect}"]`);
+    if (target) { target.closest('.issue-card')?.classList.add('selected'); target.checked = true; }
+  } else {
+    // Default select first
+    document.querySelector('.issue-card')?.classList.add('selected');
+    document.querySelector('.issue-card input')?.checked == false &&
+      (document.querySelector('.issue-card input').checked = true);
+  }
+</script>
+</body>
+</html>
