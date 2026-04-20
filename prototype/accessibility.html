@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessibility Settings — Consumer Rights Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .preview-panel {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      position: sticky;
+      top: 100px;
+    }
+    .preview-panel h3 {
+      font-size: var(--font-base);
+      font-weight: 700;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+    .preview-sample {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .preview-heading { font-size: var(--font-xl); font-weight: 700; margin-bottom: 8px; color: var(--text-primary); }
+    .preview-body { font-size: var(--font-base); color: var(--text-secondary); margin-bottom: 12px; }
+    .preview-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      padding: 10px 22px;
+      font-size: var(--font-base);
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .color-options { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+    .color-swatch {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      border: 3px solid transparent;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .color-swatch.active { border-color: var(--text-primary); transform: scale(1.1); }
+    .color-swatch:focus-visible { outline: 3px solid var(--accent); }
+    .swatch-default  { background: #1B4F8A; }
+    .swatch-teal     { background: #006B5A; }
+    .swatch-purple   { background: #5B2D8E; }
+    .swatch-black    { background: #1A1A1A; }
+    .lang-btn {
+      padding: 10px 20px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      cursor: pointer;
+      font-size: var(--font-sm);
+      font-weight: 600;
+      transition: all .2s;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+    .feature-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--bg);
+    }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--primary-light);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .feature-text { flex: 1; }
+    .feature-text h3 { font-size: var(--font-base); font-weight: 700; margin-bottom: 4px; }
+    .feature-text p { font-size: var(--font-sm); color: var(--text-secondary); }
+    .feature-control { display: flex; align-items: center; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- Accessibility Bar -->
+<div class="a11y-bar" role="toolbar" aria-label="Accessibility settings">
+  <div class="inner">
+    <span class="label">Accessibility:</span>
+    <button class="a11y-btn" id="btn-contrast" onclick="toggleContrast()">⬛ High Contrast</button>
+    <span class="a11y-separator" aria-hidden="true">|</span>
+    <span class="label">Text Size:</span>
+    <button class="a11y-btn" data-size="default" onclick="setTextSize('default')">A</button>
+    <button class="a11y-btn" data-size="lg"      onclick="setTextSize('lg')" style="font-size:18px">A</button>
+    <button class="a11y-btn" data-size="xl"      onclick="setTextSize('xl')" style="font-size:21px">A</button>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header" role="banner">
+  <div class="inner">
+    <a class="site-logo" href="index.html" aria-label="Consumer Rights Hub home">
+      <div class="logo-icon" aria-hidden="true">⚖</div>
+      Consumer Rights Hub
+    </a>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="issue-classifier.html">Check My Rights</a>
+      <a href="templates.html">Templates</a>
+      <a href="complaint-pathway.html">How to Complain</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="page-wrap">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep" aria-hidden="true">›</span>
+      <span class="current" aria-current="page">Accessibility Settings</span>
+    </nav>
+
+    <h1 class="page-title">Accessibility Settings</h1>
+    <p class="page-subtitle">
+      Customise how this website looks and works to suit your needs. All settings are saved automatically.
+    </p>
+
+    <!-- Two column layout -->
+    <div style="display:grid; grid-template-columns:1fr 340px; gap:40px; align-items:start;">
+
+      <!-- LEFT: Settings -->
+      <div>
+
+        <!-- Text Settings -->
+        <section class="settings-section" aria-labelledby="text-settings-heading">
+          <h2 id="text-settings-heading">🔤 Text Size</h2>
+          <p style="color:var(--text-secondary); margin-bottom:16px;">Choose a text size that is comfortable for you to read.</p>
+          <div class="font-size-btns" role="radiogroup" aria-label="Text size options">
+            <button class="font-size-btn" data-size="default" onclick="setTextSize('default')" aria-label="Default text size" style="font-size:15px">A Default</button>
+            <button class="font-size-btn" data-size="lg"      onclick="setTextSize('lg')"      aria-label="Large text size"   style="font-size:18px">A Large</button>
+            <button class="font-size-btn" data-size="xl"      onclick="setTextSize('xl')"      aria-label="Extra large text"  style="font-size:21px">A Extra Large</button>
+          </div>
+        </section>
+
+        <!-- Contrast Settings -->
+        <section class="settings-section" aria-labelledby="contrast-settings-heading">
+          <h2 id="contrast-settings-heading">🎨 Contrast &amp; Colour</h2>
+
+          <div class="feature-row">
+            <div class="feature-icon" aria-hidden="true">⬛</div>
+            <div class="feature-text">
+              <h3>High Contrast Mode</h3>
+              <p>Makes text and borders much darker and more defined for users with low vision or colour-processing difficulties.</p>
+            </div>
+            <div class="feature-control">
+              <label class="toggle-switch" aria-label="Toggle high contrast mode">
+                <input type="checkbox" id="setting-contrast" onchange="toggleContrast()" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;">
+            <p style="font-weight:600; margin-bottom:8px;">Colour Theme</p>
+            <p style="font-size:var(--font-sm); color:var(--text-secondary); margin-bottom:12px;">Choose a primary colour for buttons and highlights.</p>
+            <div class="color-options" role="radiogroup" aria-label="Colour theme options">
+              <button class="color-swatch swatch-default active" onclick="setTheme('default', this)" aria-label="Default blue theme" title="Default Blue"></button>
+              <button class="color-swatch swatch-teal"           onclick="setTheme('teal', this)"    aria-label="Teal theme"         title="Teal"></button>
+              <button class="color-swatch swatch-purple"         onclick="setTheme('purple', this)"  aria-label="Purple theme"       title="Purple"></button>
+              <button class="color-swatch swatch-black"          onclick="setTheme('black', this)"   aria-label="Black theme"        title="High Contrast Black"></button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <section class="settings-section" aria-labelledby="nav-settings-heading">
+          <h2 id="nav-settings-heading">🖱 Navigation &amp; Interaction</h2>
+
+          <div class="feature-row">
+            <div class="feature-icon" aria-hidden="true">⌨️</div>
+            <div class="feature-text">
+              <h3>Keyboard Navigation</h3>
+              <p>All features of this website can be accessed using a keyboard alone. Press <strong>Tab</strong> to move between elements and <strong>Enter</strong> or <strong>Space</strong> to activate them.</p>
+            </div>
+            <div class="feature-control">
+              <span class="tag tag-success">Always On</span>
+            </div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-icon" aria-hidden="true">🔗</div>
+            <div class="feature-text">
+              <h3>Skip to Main Content</h3>
+              <p>Press <strong>Tab</strong> as soon as a page loads to access a "Skip to main content" link — this lets you skip over the navigation menu.</p>
+            </div>
+            <div class="feature-control">
+              <span class="tag tag-success">Always On</span>
+            </div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-icon" aria-hidden="true">🔍</div>
+            <div class="feature-text">
+              <h3>Focus Indicators</h3>
+              <p>When you navigate by keyboard, a visible yellow outline appears around the focused element so you always know where you are on the page.</p>
+            </div>
+            <div class="feature-control">
+              <span class="tag tag-success">Always On</span>
+            </div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-icon" aria-hidden="true">🗣</div>
+            <div class="feature-text">
+              <h3>Screen Reader Support</h3>
+              <p>This website is built with full ARIA landmark regions, descriptive labels, and logical heading order to support screen readers such as NVDA, JAWS, or VoiceOver.</p>
+            </div>
+            <div class="feature-control">
+              <span class="tag tag-success">Compatible</span>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- Language -->
+        <section class="settings-section" aria-labelledby="lang-settings-heading">
+          <h2 id="lang-settings-heading">🌐 Language</h2>
+          <p style="color:var(--text-secondary); margin-bottom:16px;">Select your preferred language for the interface.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;" role="radiogroup" aria-label="Language selection">
+            <button class="lang-btn active" onclick="setLang('en', this)" aria-label="English, currently selected" aria-pressed="true">🇦🇺 English</button>
+            <button class="lang-btn" onclick="setLang('zh', this)" aria-label="Chinese Simplified">🇨🇳 中文</button>
+            <button class="lang-btn" onclick="setLang('ar', this)" aria-label="Arabic">🇦🇪 العربية</button>
+            <button class="lang-btn" onclick="setLang('vi', this)" aria-label="Vietnamese">🇻🇳 Tiếng Việt</button>
+            <button class="lang-btn" onclick="setLang('el', this)" aria-label="Greek">🇬🇷 Ελληνικά</button>
+            <button class="lang-btn" onclick="setLang('it', this)" aria-label="Italian">🇮🇹 Italiano</button>
+          </div>
+          <div class="alert alert-info mt-3" role="note">
+            <div class="alert-icon" aria-hidden="true">ℹ️</div>
+            <div class="alert-body">
+              <p>Language translation is currently in development. For now, select your language to see a translated summary of this page.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Reset -->
+        <section class="settings-section" aria-labelledby="reset-heading">
+          <h2 id="reset-heading">🔄 Reset</h2>
+          <p style="color:var(--text-secondary); margin-bottom:16px;">Reset all accessibility settings to their default values.</p>
+          <button class="btn btn-ghost" onclick="resetAll()" aria-label="Reset all accessibility settings to default">
+            🔄 Reset All to Default
+          </button>
+        </section>
+
+      </div>
+
+      <!-- RIGHT: Live Preview -->
+      <aside role="complementary" aria-label="Live preview of settings">
+        <div class="preview-panel">
+          <h3>👁 Live Preview</h3>
+          <p style="font-size:var(--font-sm); color:var(--text-muted); margin-bottom:16px;">This shows how your settings affect the website content.</p>
+          <div class="preview-sample">
+            <div class="preview-heading">Know Your Rights</div>
+            <div class="preview-body">Under Australian Consumer Law, you have the right to a refund, replacement, or repair for a faulty product.</div>
+            <button class="preview-btn">Check My Rights</button>
+          </div>
+          <p style="font-size:12px; color:var(--text-muted); margin-top:12px; text-align:center;">
+            Settings apply to the entire website
+          </p>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- WCAG Information -->
+    <div class="card mt-4" role="region" aria-labelledby="wcag-heading">
+      <h2 id="wcag-heading" style="font-size:var(--font-lg); font-weight:700; margin-bottom:16px;">
+        ♿ Our Accessibility Commitment
+      </h2>
+      <div class="grid-2">
+        <div>
+          <p style="margin-bottom:12px; color:var(--text-secondary);">
+            Consumer Rights Hub is designed to meet <strong>WCAG 2.1 Level AA</strong> accessibility standards. We are committed to ensuring equal access for all users, including those with:
+          </p>
+          <ul style="padding-left:20px; color:var(--text-secondary); display:flex; flex-direction:column; gap:6px;">
+            <li>Visual impairments or low vision</li>
+            <li>Motor or mobility impairments</li>
+            <li>Cognitive or learning differences</li>
+            <li>Hearing impairments</li>
+            <li>Age-related accessibility needs</li>
+          </ul>
+        </div>
+        <div>
+          <div class="alert alert-success" role="note">
+            <div class="alert-icon" aria-hidden="true">✅</div>
+            <div class="alert-body">
+              <div class="alert-title">Designed for elderly users</div>
+              <p>This website has been specifically designed with older users in mind — including large default text, high contrast options, simple navigation, and plain English content.</p>
+            </div>
+          </div>
+          <div class="alert alert-info mt-2" role="note">
+            <div class="alert-icon" aria-hidden="true">📧</div>
+            <div class="alert-body">
+              <p>Found an accessibility issue? <a href="#">Contact us</a> and we will respond within 2 business days.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="inner">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <span>© 2026 Consumer Rights Hub — For educational purposes only</span>
+      <span>Based on Australian Consumer Law</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  function setTheme(theme, btn) {
+    document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    // In a full implementation, this would switch CSS variable values
+    localStorage.setItem('crh-theme', theme);
+    // Demo feedback
+    const el = document.createElement('div');
+    el.textContent = 'Theme "' + btn.title + '" selected. Full theme switching coming soon.';
+    el.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--text-primary);color:white;padding:12px 24px;border-radius:8px;z-index:9999;font-size:var(--font-sm);';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 2500);
+  }
+
+  function setLang(lang, btn) {
+    document.querySelectorAll('.lang-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
+    localStorage.setItem('crh-lang', lang);
+    if (lang !== 'en') {
+      const el = document.createElement('div');
+      el.textContent = 'Language translation is in development. Thank you for your patience!';
+      el.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--primary);color:white;padding:12px 24px;border-radius:8px;z-index:9999;font-size:var(--font-sm);';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 3000);
+    }
+  }
+
+  function resetAll() {
+    localStorage.removeItem('crh-contrast');
+    localStorage.removeItem('crh-textsize');
+    localStorage.removeItem('crh-theme');
+    document.body.classList.remove('high-contrast', 'text-lg', 'text-xl');
+    document.querySelectorAll('.font-size-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.font-size-btn[data-size="default"]')?.classList.add('active');
+    document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+    document.querySelector('.swatch-default')?.classList.add('active');
+    const contrastToggle = document.getElementById('setting-contrast');
+    if (contrastToggle) contrastToggle.checked = false;
+    const el = document.createElement('div');
+    el.textContent = '✓ All settings reset to default.';
+    el.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--success);color:white;padding:12px 24px;border-radius:8px;z-index:9999;font-size:var(--font-sm);';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 2500);
+  }
+
+  // Sync font size buttons with current state
+  document.addEventListener('DOMContentLoaded', function() {
+    const size = localStorage.getItem('crh-textsize') || 'default';
+    document.querySelectorAll('.font-size-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.size === size);
+    });
+  });
+</script>
+</body>
+</html>

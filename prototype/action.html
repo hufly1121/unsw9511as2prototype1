@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Action Plan — Consumer Rights Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- Accessibility Bar -->
+<div class="a11y-bar" role="toolbar" aria-label="Accessibility settings">
+  <div class="inner">
+    <span class="label">Accessibility:</span>
+    <button class="a11y-btn" id="btn-contrast" onclick="toggleContrast()">⬛ High Contrast</button>
+    <span class="a11y-separator" aria-hidden="true">|</span>
+    <span class="label">Text Size:</span>
+    <button class="a11y-btn" data-size="default" onclick="setTextSize('default')">A</button>
+    <button class="a11y-btn" data-size="lg"      onclick="setTextSize('lg')" style="font-size:18px">A</button>
+    <button class="a11y-btn" data-size="xl"      onclick="setTextSize('xl')" style="font-size:21px">A</button>
+    <span class="a11y-separator" aria-hidden="true">|</span>
+    <a class="a11y-btn" href="accessibility.html">⚙ More Settings</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header" role="banner">
+  <div class="inner">
+    <a class="site-logo" href="index.html" aria-label="Consumer Rights Hub home">
+      <div class="logo-icon" aria-hidden="true">⚖</div>
+      Consumer Rights Hub
+    </a>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="issue-classifier.html" class="active">Check My Rights</a>
+      <a href="templates.html">Templates</a>
+      <a href="complaint-pathway.html">How to Complain</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="page-wrap narrow">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep" aria-hidden="true">›</span>
+      <a href="issue-classifier.html">Identify Issue</a>
+      <span class="sep" aria-hidden="true">›</span>
+      <a href="result.html">Your Rights</a>
+      <span class="sep" aria-hidden="true">›</span>
+      <span class="current" aria-current="page">Action Plan</span>
+    </nav>
+
+    <!-- Flow Steps -->
+    <div class="step-row" role="list" aria-label="Progress steps">
+      <div class="step-item" role="listitem">
+        <div class="step-circle done" aria-label="Step 1 completed">✓</div>
+        <span class="step-label done">Identify Issue</span>
+      </div>
+      <div class="step-connector done" aria-hidden="true"></div>
+      <div class="step-item" role="listitem">
+        <div class="step-circle done" aria-label="Step 2 completed">✓</div>
+        <span class="step-label done">Check Rights</span>
+      </div>
+      <div class="step-connector done" aria-hidden="true"></div>
+      <div class="step-item" role="listitem">
+        <div class="step-circle done" aria-label="Step 3 completed">✓</div>
+        <span class="step-label done">Your Result</span>
+      </div>
+      <div class="step-connector done" aria-hidden="true"></div>
+      <div class="step-item" role="listitem">
+        <div class="step-circle active" aria-label="Step 4, current: Take Action">4</div>
+        <span class="step-label active">Take Action</span>
+      </div>
+    </div>
+
+    <h1 class="page-title">Your Action Plan</h1>
+    <p class="page-subtitle">
+      Follow these steps in order. Start with Step 1 — many issues are resolved without needing to escalate further.
+    </p>
+
+    <!-- Rights Quick Recap -->
+    <div class="alert alert-success mb-4" role="note" aria-label="Rights recap">
+      <div class="alert-icon" aria-hidden="true">✅</div>
+      <div class="alert-body">
+        <div class="alert-title">Your rights recap</div>
+        <p>You have the right to a <strong>full refund or replacement</strong> for a faulty product under Australian Consumer Law. The seller cannot legally refuse this.</p>
+        <a href="result.html" style="color:var(--success); font-weight:600; font-size:var(--font-sm);">← View full rights summary</a>
+      </div>
+    </div>
+
+    <!-- Action Steps -->
+    <div class="action-steps" role="list" aria-label="Action steps">
+
+      <!-- Step 1 -->
+      <div class="action-step current" role="listitem" aria-label="Step 1: Contact the seller">
+        <div class="step-num" aria-hidden="true">1</div>
+        <div class="step-body">
+          <span class="step-tag recommended">Start Here</span>
+          <h3>Contact the Seller Directly</h3>
+          <p>
+            The first step is always to contact the business where you bought the product.
+            Explain the problem clearly and state that you are requesting a remedy under Australian Consumer Law.
+            Keep a record of all communication.
+          </p>
+          <div class="accordion-item" style="margin-top:0;">
+            <div class="accordion-header" tabindex="0" role="button" aria-expanded="false">
+              <span>💡 Tips for contacting the seller</span>
+              <span class="chevron" aria-hidden="true">▼</span>
+            </div>
+            <div class="accordion-body">
+              <ul style="padding-left:20px; display:flex; flex-direction:column; gap:8px; color:var(--text-secondary);">
+                <li>Put your complaint <strong>in writing</strong> (email or letter) — this creates a paper trail</li>
+                <li>Be clear and polite — state the problem, the remedy you want, and a deadline (e.g. 14 days)</li>
+                <li>Mention <strong>Australian Consumer Law</strong> specifically in your message</li>
+                <li>Keep all receipts, order confirmations, and product photos</li>
+                <li>Note the name of anyone you speak to and the date of the conversation</li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex-gap mt-3">
+            <a href="templates.html" class="btn btn-primary btn-sm">📄 Get Complaint Letter Template</a>
+            <button class="btn btn-ghost btn-sm" onclick="markDone(this)" aria-label="Mark step 1 as done">✓ Mark Done</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="action-step" role="listitem" aria-label="Step 2: Escalate to Fair Trading">
+        <div class="step-num" style="background:var(--text-muted);" aria-hidden="true">2</div>
+        <div class="step-body">
+          <span class="step-tag required">If Step 1 fails</span>
+          <h3>Contact Your State's Fair Trading Office</h3>
+          <p>
+            If the seller still refuses to help after your written complaint, contact the Fair Trading (or Consumer Affairs) office in your state or territory. They can mediate the dispute for free.
+          </p>
+          <div class="accordion-item" style="margin-top:0;">
+            <div class="accordion-header" tabindex="0" role="button" aria-expanded="false">
+              <span>🏛 Fair Trading offices by state</span>
+              <span class="chevron" aria-hidden="true">▼</span>
+            </div>
+            <div class="accordion-body">
+              <ul style="padding-left:20px; display:flex; flex-direction:column; gap:8px; color:var(--text-secondary);">
+                <li><strong>NSW:</strong> NSW Fair Trading — fairtrading.nsw.gov.au</li>
+                <li><strong>VIC:</strong> Consumer Affairs Victoria — consumer.vic.gov.au</li>
+                <li><strong>QLD:</strong> Office of Fair Trading — fairtrading.qld.gov.au</li>
+                <li><strong>SA:</strong> Consumer and Business Services — cbs.sa.gov.au</li>
+                <li><strong>WA:</strong> Consumer Protection — commerce.wa.gov.au</li>
+                <li><strong>TAS:</strong> Consumer, Building and Occupational Services — cbos.tas.gov.au</li>
+                <li><strong>ACT:</strong> Access Canberra — accesscanberra.act.gov.au</li>
+                <li><strong>NT:</strong> Consumer Affairs — consumeraffairs.nt.gov.au</li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex-gap mt-3">
+            <a href="complaint-pathway.html" class="btn btn-outline btn-sm">📋 Full Complaint Pathway Guide</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="action-step" role="listitem" aria-label="Step 3: Tribunal or ACCC">
+        <div class="step-num" style="background:var(--text-muted);" aria-hidden="true">3</div>
+        <div class="step-body">
+          <span class="step-tag required">Last Resort</span>
+          <h3>Apply to a Tribunal or Contact the ACCC</h3>
+          <p>
+            If the dispute is still unresolved, you can apply to your state's Civil and Administrative Tribunal (CAT) for a formal hearing. Alternatively, for systemic business misconduct, report to the ACCC.
+          </p>
+          <div class="accordion-item" style="margin-top:0;">
+            <div class="accordion-header" tabindex="0" role="button" aria-expanded="false">
+              <span>⚖ Tribunal options by state</span>
+              <span class="chevron" aria-hidden="true">▼</span>
+            </div>
+            <div class="accordion-body">
+              <ul style="padding-left:20px; display:flex; flex-direction:column; gap:8px; color:var(--text-secondary);">
+                <li><strong>NSW:</strong> NSW Civil and Administrative Tribunal (NCAT)</li>
+                <li><strong>VIC:</strong> Victorian Civil and Administrative Tribunal (VCAT)</li>
+                <li><strong>QLD:</strong> Queensland Civil and Administrative Tribunal (QCAT)</li>
+                <li><strong>SA:</strong> South Australian Civil and Administrative Tribunal (SACAT)</li>
+                <li><strong>WA:</strong> Magistrates Court of Western Australia (Consumer Protection jurisdiction)</li>
+                <li><strong>All states:</strong> ACCC (for reporting, not individual disputes) — accc.gov.au</li>
+              </ul>
+              <div class="alert alert-info mt-3" role="note">
+                <div class="alert-icon" aria-hidden="true">ℹ️</div>
+                <div class="alert-body">
+                  <p>Tribunal applications usually have a small filing fee. Many hearings can be conducted online or over the phone.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Checklist Card -->
+    <div class="card mt-4" role="region" aria-label="Documents to prepare">
+      <h2 style="font-size:var(--font-lg); font-weight:700; margin-bottom:16px;">📎 Documents to Prepare</h2>
+      <p style="color:var(--text-secondary); margin-bottom:16px;">Having these ready will strengthen your case at every step:</p>
+      <ul style="padding-left:0; list-style:none; display:flex; flex-direction:column; gap:10px;">
+        <li style="display:flex; gap:10px; align-items:center;">
+          <input type="checkbox" id="chk1" style="width:20px;height:20px;accent-color:var(--primary);cursor:pointer;" />
+          <label for="chk1" style="cursor:pointer;">Original receipt or proof of purchase</label>
+        </li>
+        <li style="display:flex; gap:10px; align-items:center;">
+          <input type="checkbox" id="chk2" style="width:20px;height:20px;accent-color:var(--primary);cursor:pointer;" />
+          <label for="chk2" style="cursor:pointer;">Photos or videos showing the fault</label>
+        </li>
+        <li style="display:flex; gap:10px; align-items:center;">
+          <input type="checkbox" id="chk3" style="width:20px;height:20px;accent-color:var(--primary);cursor:pointer;" />
+          <label for="chk3" style="cursor:pointer;">Copies of any written correspondence with the seller</label>
+        </li>
+        <li style="display:flex; gap:10px; align-items:center;">
+          <input type="checkbox" id="chk4" style="width:20px;height:20px;accent-color:var(--primary);cursor:pointer;" />
+          <label for="chk4" style="cursor:pointer;">Notes of any phone or in-person conversations (date, name, what was said)</label>
+        </li>
+        <li style="display:flex; gap:10px; align-items:center;">
+          <input type="checkbox" id="chk5" style="width:20px;height:20px;accent-color:var(--primary);cursor:pointer;" />
+          <label for="chk5" style="cursor:pointer;">The original advertisement or product description</label>
+        </li>
+        <li style="display:flex; gap:10px; align-items:center;">
+          <input type="checkbox" id="chk6" style="width:20px;height:20px;accent-color:var(--primary);cursor:pointer;" />
+          <label for="chk6" style="cursor:pointer;">Written complaint letter (if you haven't sent one yet, use our template)</label>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Bottom CTAs -->
+    <div class="flex-gap mt-4" style="justify-content:flex-start;">
+      <a href="templates.html" class="btn btn-primary">📄 Get Letter Templates</a>
+      <a href="complaint-pathway.html" class="btn btn-outline">📋 Full Complaint Guide</a>
+      <a href="result.html" class="btn btn-ghost">← Back to Rights Summary</a>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="inner">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <span>© 2026 Consumer Rights Hub — For educational purposes only</span>
+      <span>Based on Australian Consumer Law</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  function markDone(btn) {
+    const step = btn.closest('.action-step');
+    step.classList.remove('current');
+    step.classList.add('done');
+    const num = step.querySelector('.step-num');
+    if (num) { num.textContent = '✓'; num.style.background = 'var(--success)'; }
+    btn.textContent = '✓ Done';
+    btn.disabled = true;
+    // Activate next step
+    const next = step.nextElementSibling;
+    if (next && next.classList.contains('action-step')) {
+      next.classList.add('current');
+      const nextNum = next.querySelector('.step-num');
+      if (nextNum) nextNum.style.background = 'var(--primary)';
+    }
+  }
+</script>
+</body>
+</html>
